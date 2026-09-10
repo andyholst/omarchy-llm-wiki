@@ -18,3 +18,16 @@
 - Fixed README.md: updated to reflect actual wiki structure
 - All 5 entity/concept pages verified: frontmatter valid, wikilinks present, cross-references intact
 - raw/ directory is empty — no sources ingested yet; sources:[] on all pages is expected
+
+## [2026-09-10] update | Full Karpathy LLM Wiki alignment
+- SCHEMA.md: added Storage tag category, expanded tag taxonomy, added scaling rules for index
+- index.md: rewrote with richer one-line summaries, proper section structure, total pages counter
+- README.md: added Karpathy pattern reference, repository link, clearer usage section
+- entities/macbook-air-5-2.md: expanded hardware specs, added Software Status and Hardware Notes sections, 4 cross-refs
+- entities/bq20z451-battery.md: minor cleanup, 3 cross-refs
+- entities/applesmc-driver.md: expanded dependencies, added patch status (not upstream), 4 cross-refs
+- concepts/luks-btrfs-boot.md: expanded pitfalls, added recovery section, 4 cross-refs
+- concepts/kernel-module-install.md: expanded common mistakes table, added Version Matching section, 4 cross-refs
+- All pages now have minimum 2 outbound wikilinks (verified: 3-4 each)
+- All tags verified against SCHEMA.md taxonomy (no rogue tags)
+- No new pages created — focused on content quality of existing pages

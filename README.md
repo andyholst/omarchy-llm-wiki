@@ -2,6 +2,8 @@
 
 Knowledge base for Omarchy Linux on MacBook Air 5,2 — kernel development, hardware support, power management.
 
+Built following [Karpathy's LLM Wiki](https://gist.github.com/karpathy/442a6bf55914893e9891c11519de94f) pattern: interlinked markdown files, immutable raw sources, agent-curated synthesis.
+
 ## Structure
 
 ```
@@ -29,3 +31,4 @@ All pages are markdown with YAML frontmatter and `[[wikilinks]]`. Open in Obsidi
 - **Pages:** 5 (3 entities, 2 concepts)
 - **Sources ingested:** 0 (raw/ is empty)
 - **Last updated:** 2026-09-10
+- **Repository:** https://github.com/andyholst/omarchy-llm-wiki

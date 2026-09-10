@@ -10,7 +10,7 @@ confidence: high
 
 # Kernel Module Installation
 
-Proper procedure for installing custom kernel modules on Arch Linux.
+Proper procedure for building and installing custom kernel modules on Arch Linux.
 
 ## Correct Procedure
 
@@ -54,18 +54,31 @@ ls /sys/class/power_supply/BAT0/charge_control_end_threshold
 | Missing `depmod` | Module dependencies not resolved | Run `depmod -a` after install |
 | Wrong kernel version | Module won't load | Build against running kernel |
 | Missing firmware | Hardware not detected | Install firmware package |
+| Wrong kernel source tree | Version mismatch errors | Build against the actual kernel you'll boot |
 
 ## Auto-Load on Boot
 
 Create `/etc/modules-load.d/applesmc.conf`:
+
 ```
 applesmc
 ```
 
 Or use `modules-load.d` + `mkinitcpio` to include in initramfs.
 
+## Version Matching
+
+Modules must be built against the exact kernel version they'll run on. The kernel checks `vermagic` at load time:
+
+```
+applesmc: version magic '7.2.3 SMP preempt mod_unload' should be '7.2.3-arch1-3...'
+```
+
+This error means the module was built against a different kernel. Rebuild from the correct source tree.
+
 ## See Also
 
 - [[applesmc-driver]] — The module in question
 - [[macbook-air-5-2]] — Hardware using this module
 - [[luks-btrfs-boot]] — Boot setup requiring correct module install
+- [[bq20z451-battery]] — Battery managed by the patched module

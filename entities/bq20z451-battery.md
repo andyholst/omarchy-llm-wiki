@@ -33,3 +33,4 @@ Texas Instruments battery gas gauge, used in MacBook Air 5,2 (mid-2012).
 
 - [[macbook-air-5-2]] — Host laptop
 - [[applesmc-driver]] — Driver that exposes battery info
+- [[kernel-module-install]] — Custom module build procedure

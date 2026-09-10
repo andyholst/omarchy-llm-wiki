@@ -56,6 +56,7 @@ and flag drift when it has changed. Compute over the body only (everything after
 - **Kernel:** module, driver, patch, config, build, upstream, kernel
 - **Power:** charge-control, tlp, powertop, cpufreq, suspend, hibernate
 - **System:** omarchy, arch-linux, btrfs, luks, systemd, mkinitcpio, limine
+- **Storage:** filesystem, encryption, partition, swap
 - **Contribution:** pr, mailing-list, review, testing, documentation
 
 Rule: every tag on a page must appear in this taxonomy. If a new tag is needed,

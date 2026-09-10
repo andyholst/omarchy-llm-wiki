@@ -45,6 +45,7 @@ HOOKS=(base systemd autodetect microcode modconf kms keyboard sd-vconsole block 
 ```
 
 The `sd-encrypt` hook provides systemd-based LUKS unlocking. It requires:
+
 - `cryptsetup` binary in initramfs
 - `dm-crypt.ko` and `dm-mod.ko` modules
 - `cryptdevice=` kernel parameter
@@ -65,6 +66,7 @@ cryptdevice=PARTUUID=xxxx-xxxx-xxxx:root root=/dev/mapper/root rootflags=subvol=
 ## Recovery
 
 From emergency shell:
+
 ```bash
 cryptsetup luksOpen /dev/sdXn root
 mount -t btrfs -o subvol=@ /dev/mapper/root /mnt
@@ -74,3 +76,4 @@ mount -t btrfs -o subvol=@ /dev/mapper/root /mnt
 
 - [[macbook-air-5-2]] — Hardware using this setup
 - [[kernel-module-install]] — Module installation for encrypted boot
+- [[applesmc-driver]] — Module that must be in initramfs if loaded at boot
