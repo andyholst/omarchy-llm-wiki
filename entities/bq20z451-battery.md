@@ -29,6 +29,12 @@ Texas Instruments battery gas gauge, used in MacBook Air 5,2 (mid-2012).
 - Charge control patches allow setting `charge_control_end_threshold` to limit charging at 80-85%
 - Health declining slowly — typical for 12+ year old battery
 
+## Relationships
+
+- Installed in [[macbook-air-5-2]] laptop
+- Managed by [[applesmc-driver]] kernel module
+- Requires [[kernel-module-install]] for patched driver builds
+
 ## See Also
 
 - [[macbook-air-5-2]] — Host laptop

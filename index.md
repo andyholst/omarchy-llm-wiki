@@ -17,9 +17,7 @@
 - [[luks-btrfs-boot]] — Full disk encryption (LUKS) + Btrfs root with systemd-based initramfs
 
 ## Comparisons
-
 <!-- None yet -->
 
 ## Queries
-
 <!-- None yet -->

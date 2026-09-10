@@ -72,8 +72,16 @@ cryptsetup luksOpen /dev/sdXn root
 mount -t btrfs -o subvol=@ /dev/mapper/root /mnt
 ```
 
+## Relationships
+
+- Used by [[macbook-air-5-2]] for encrypted boot
+- Requires [[kernel-module-install]] for module setup
+- Integrates [[applesmc-driver]] when loaded at boot
+- Manages [[bq20z451-battery]] through encrypted boot chain
+
 ## See Also
 
 - [[macbook-air-5-2]] — Hardware using this setup
 - [[kernel-module-install]] — Module installation for encrypted boot
 - [[applesmc-driver]] — Module that must be in initramfs if loaded at boot
+- [[bq20z451-battery]] — Battery managed through this boot chain

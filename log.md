@@ -31,3 +31,15 @@
 - All pages now have minimum 2 outbound wikilinks (verified: 3-4 each)
 - All tags verified against SCHEMA.md taxonomy (no rogue tags)
 - No new pages created — focused on content quality of existing pages
+
+## [2026-09-10] update | Karpathy practice alignment pass
+- SCHEMA.md: added Scaling Rules section (index section 50+ entries, 200+ total, log rotation 500+)
+- index.md: added scaling rule comment, verified alphabetical ordering in sections
+- entities/macbook-air-5-2.md: added Relationships section with 4 cross-refs, fixed See Also to match
+- entities/bq20z451-battery.md: added Relationships section with 3 cross-refs
+- entities/applesmc-driver.md: added Relationships section with 4 cross-refs, fixed macair→macbook-air wikilink
+- concepts/kernel-module-install.md: added Relationships section with 4 cross-refs
+- concepts/luks-btrfs-boot.md: added Relationships section with 4 cross-refs
+- All pages now have explicit Relationships sections for stronger interlinking
+- Verified all wikilinks resolve to existing pages (no broken links)
+- All frontmatter validated against SCHEMA.md requirements

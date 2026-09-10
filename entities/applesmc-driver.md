@@ -46,6 +46,13 @@ echo 80 | sudo tee /sys/class/power_supply/BAT0/charge_control_end_threshold
 - `depmod -a` must be run after module changes
 - Auto-loads via `/etc/modules-load.d/applesmc.conf`
 
+## Relationships
+
+- Manages [[bq20z451-battery]] battery gas gauge
+- Runs on [[macbook-air-5-2]] hardware
+- Requires [[kernel-module-install]] for proper installation
+- Part of [[luks-btrfs-boot]] boot chain when included in initramfs
+
 ## See Also
 
 - [[macbook-air-5-2]] — Hardware using this driver

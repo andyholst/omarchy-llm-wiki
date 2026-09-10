@@ -76,6 +76,13 @@ applesmc: version magic '7.2.3 SMP preempt mod_unload' should be '7.2.3-arch1-3.
 
 This error means the module was built against a different kernel. Rebuild from the correct source tree.
 
+## Relationships
+
+- Used to install [[applesmc-driver]] patched module
+- Required for [[macbook-air-5-2]] custom kernel support
+- Part of [[luks-btrfs-boot]] when modules go in initramfs
+- Manages [[bq20z451-battery]] when driver is properly installed
+
 ## See Also
 
 - [[applesmc-driver]] — The module in question

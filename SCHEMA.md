@@ -96,3 +96,8 @@ When new information conflicts with existing content:
 2. If genuinely contradictory, note both positions with dates and sources
 3. Mark the contradiction in frontmatter: `contradictions: [page-name]`
 4. Flag for user review in the lint report
+
+## Scaling Rules
+- When any index section exceeds 50 entries, split into sub-sections by first letter or sub-domain
+- When the index exceeds 200 entries total, create `_meta/topic-map.md` grouping pages by theme
+- When log.md exceeds 500 entries, rotate: rename to `log-YYYY.md`, start fresh

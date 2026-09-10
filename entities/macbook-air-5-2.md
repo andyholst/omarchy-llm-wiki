@@ -37,6 +37,13 @@ Intel Core i5-3427U (dual-core, 1.8GHz), Intel HD 4000, 8GB RAM. The last MacBoo
 - Intel HD 4000 supports VA-API but not QuickSync; power management requires `i915.enable_dc=0` on this platform
 - 8GB RAM is soldered — not upgradeable
 
+## Relationships
+
+- Hosts [[bq20z451-battery]] battery gas gauge
+- Managed by [[applesmc-driver]] for hardware control
+- Boots via [[luks-btrfs-boot]] encrypted setup
+- Uses [[kernel-module-install]] for custom module builds
+
 ## See Also
 
 - [[bq20z451-battery]] — Battery gas gauge

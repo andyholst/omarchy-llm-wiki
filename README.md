@@ -2,7 +2,7 @@
 
 Knowledge base for Omarchy Linux on MacBook Air 5,2 — kernel development, hardware support, power management.
 
-Built following [Karpathy's LLM Wiki](https://gist.github.com/karpathy/442a6bf55914893e9891c11519de94f) pattern: interlinked markdown files, immutable raw sources, agent-curated synthesis.
+Built following [Karpathy's LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) pattern: interlinked markdown files, immutable raw sources, agent-curated synthesis.
 
 ## Structure
 
@@ -25,6 +25,17 @@ wiki/
 ## Usage
 
 All pages are markdown with YAML frontmatter and `[[wikilinks]]`. Open in Obsidian, VS Code, or any editor.
+
+## Karpathy Practice Compliance
+
+- **Three-layer architecture**: Raw sources (immutable), wiki pages (agent-curated), schema (conventions)
+- **Frontmatter on every page**: title, created, updated, type, tags, sources, confidence
+- **Wikilinks everywhere**: minimum 2 outbound links per page, explicit Relationships sections
+- **Provenance markers**: used on pages synthesizing 3+ sources
+- **Tag taxonomy**: defined in SCHEMA.md, enforced on all pages
+- **Page thresholds**: create only when entity appears in 2+ sources or is central to one
+- **Update policy**: contradictions noted with dates, marked in frontmatter
+- **Scaling rules**: index sections split at 50+, log rotates at 500+, topic-map at 200+
 
 ## Status
 
