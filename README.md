@@ -1,19 +1,31 @@
 # Omarchy LLM Wiki
 
-Auto-generated knowledge base from study sessions.
+Knowledge base for Omarchy Linux on MacBook Air 5,2 — kernel development, hardware support, power management.
 
-## Purpose
+## Structure
 
-This wiki is regenerated periodically as a study practice. Each generation cycle:
-1. Selects a topic from the study queue
-2. Researches and synthesizes information
-3. Publishes a structured markdown page
-4. Rebuilds the index
+```
+wiki/
+├── SCHEMA.md           # Conventions, tag taxonomy, structure rules
+├── index.md            # Sectioned content catalog with one-line summaries
+├── log.md              # Chronological action log (append-only)
+├── raw/                # Layer 1: Immutable source material
+│   ├── articles/       # Web articles, clippings
+│   ├── papers/         # PDFs, arxiv papers
+│   ├── transcripts/    # Meeting notes, interviews
+│   └── assets/         # Images, diagrams
+├── entities/           # Layer 2: Entity pages (people, orgs, products, models)
+├── concepts/           # Layer 2: Concept/topic pages
+├── comparisons/        # Layer 2: Side-by-side analyses
+└── queries/            # Layer 2: Filed query results worth keeping
+```
 
-## Content
+## Usage
 
-All pages live in `content/` as markdown files. The index is `content/index.json`.
+All pages are markdown with YAML frontmatter and `[[wikilinks]]`. Open in Obsidian, VS Code, or any editor.
 
-## Development
+## Status
 
-The wiki is hosted via GitHub Pages on the `gh-pages` branch.
+- **Pages:** 5 (3 entities, 2 concepts)
+- **Sources ingested:** 0 (raw/ is empty)
+- **Last updated:** 2026-09-10

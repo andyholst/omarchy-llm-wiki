@@ -11,48 +11,61 @@ Omarchy Linux, kernel development, hardware support, and system customization fo
 - Every new page must be added to `index.md` under the correct section
 - Every action must be appended to `log.md`
 - **Provenance markers:** On pages that synthesize 3+ sources, append `^[raw/articles/source-file.md]`
-  at the end of paragraphs whose claims come from a specific source.
+  at the end of paragraphs whose claims come from a specific source. This lets a reader trace each
+  claim back without re-reading the whole raw file. Optional on single-source pages where the
+  `sources:` frontmatter is enough.
 
 ## Frontmatter
-  ```yaml
-  ---
-  title: Page Title
-  created: YYYY-MM-DD
-  updated: YYYY-MM-DD
-  type: entity | concept | comparison | query | summary
-  tags: [from taxonomy below]
-  sources: [raw/articles/source-name.md]
-  confidence: high | medium | low
-  contested: true
-  contradictions: [other-page-slug]
-  ---
-  ```
+```yaml
+---
+title: Page Title
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+type: entity | concept | comparison | query | summary
+tags: [from taxonomy below]
+sources: [raw/articles/source-name.md]
+# Optional quality signals:
+confidence: high | medium | low        # how well-supported the claims are
+contested: true                        # set when the page has unresolved contradictions
+contradictions: [other-page-slug]      # pages this one conflicts with
+---
+```
+
+`confidence` and `contested` are optional but recommended for opinion-heavy or fast-moving
+topics. Lint surfaces `contested: true` and `confidence: low` pages for review so weak claims
+don't silently harden into accepted wiki fact.
 
 ### raw/ Frontmatter
 
+Raw sources ALSO get a small frontmatter block so re-ingests can detect drift:
+
 ```yaml
 ---
-source_url: https://example.com/article
+source_url: https://example.com/article   # original URL, if applicable
 ingested: YYYY-MM-DD
 sha256: <hex digest of the raw content below the frontmatter>
 ---
 ```
 
+The `sha256:` lets a future re-ingest of the same URL skip processing when content is unchanged,
+and flag drift when it has changed. Compute over the body only (everything after the closing
+`---`), not the frontmatter itself.
+
 ## Tag Taxonomy
-- **Hardware:** macbook-air, battery, cpu, gpu, wifi, bluetooth, applesmc
-- **Kernel:** module, driver, patch, config, build, upstream
+- **Hardware:** macbook-air, battery, cpu, gpu, wifi, bluetooth, applesmc, intel, broadcom, hardware
+- **Kernel:** module, driver, patch, config, build, upstream, kernel
 - **Power:** charge-control, tlp, powertop, cpufreq, suspend, hibernate
 - **System:** omarchy, arch-linux, btrfs, luks, systemd, mkinitcpio, limine
 - **Contribution:** pr, mailing-list, review, testing, documentation
 
 Rule: every tag on a page must appear in this taxonomy. If a new tag is needed,
-add it here first, then use it.
+add it here first, then use it. This prevents tag sprawl.
 
 ## Page Thresholds
 - **Create a page** when an entity/concept appears in 2+ sources OR is central to one source
 - **Add to existing page** when a source mentions something already covered
 - **DON'T create a page** for passing mentions, minor details, or things outside the domain
-- **Split a page** when it exceeds ~200 lines
+- **Split a page** when it exceeds ~200 lines — break into sub-topics with cross-links
 - **Archive a page** when its content is fully superseded — move to `_archive/`, remove from index
 
 ## Entity Pages
