@@ -1,0 +1,71 @@
+---
+title: Kernel Module Installation
+created: 2026-09-10
+updated: 2026-09-10
+type: concept
+tags: [kernel, module, build, arch-linux]
+sources: []
+confidence: high
+---
+
+# Kernel Module Installation
+
+Proper procedure for installing custom kernel modules on Arch Linux.
+
+## Correct Procedure
+
+### 1. Build the Module
+
+```bash
+cd /usr/lib/modules/$(uname -r)/build
+make -j$(nproc) M=drivers/hwmon
+```
+
+### 2. Install the Module
+
+```bash
+sudo cp drivers/hwmon/applesmc.ko /lib/modules/$(uname -r)/updates/drivers/hwmon/
+```
+
+### 3. Update Dependencies
+
+```bash
+sudo depmod -a
+```
+
+### 4. Load the Module
+
+```bash
+sudo modprobe applesmc
+```
+
+### 5. Verify
+
+```bash
+lsmod | grep applesmc
+ls /sys/class/power_supply/BAT0/charge_control_end_threshold
+```
+
+## Common Mistakes
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| Wrong path (`/usr/lib/modules/.old/`) | Module not found on boot | Use `/lib/modules/<ver>/` |
+| Missing `depmod` | Module dependencies not resolved | Run `depmod -a` after install |
+| Wrong kernel version | Module won't load | Build against running kernel |
+| Missing firmware | Hardware not detected | Install firmware package |
+
+## Auto-Load on Boot
+
+Create `/etc/modules-load.d/applesmc.conf`:
+```
+applesmc
+```
+
+Or use `modules-load.d` + `mkinitcpio` to include in initramfs.
+
+## See Also
+
+- [[applesmc-driver]] — The module in question
+- [[macbook-air-5-2]] — Hardware using this module
+- [[luks-btrfs-boot]] — Boot setup requiring correct module install
