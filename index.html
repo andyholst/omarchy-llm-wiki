@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omarchy LLM Wiki</title>
+    <style>
+        :root { --bg: #1a1b26; --fg: #c0caf5; --accent: #7aa2f7; --muted: #565f89; }
+        body { font-family: 'JetBrains Mono', 'Fira Code', monospace; background: var(--bg); color: var(--fg); max-width: 900px; margin: 0 auto; padding: 2rem; }
+        h1 { color: var(--accent); border-bottom: 1px solid var(--muted); padding-bottom: 0.5rem; }
+        a { color: var(--accent); }
+        .meta { color: var(--muted); font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+    <h1>Omarchy LLM Wiki</h1>
+    <p class="meta">Auto-generated knowledge base from study sessions. Last updated: <span id="updated">loading...</span></p>
+    <div id="content"></div>
+    <script>
+        document.getElementById('updated').textContent = new Date().toLocaleDateString();
+        fetch('content/index.json').then(r => r.json()).then(data => {
+            const c = document.getElementById('content');
+            c.innerHTML = '<h2>Topics</h2>' + data.pages.map(p => 
+                `<p><a href="content/${p.slug}.md">${p.title}</a> <span class="meta">${p.description || ''}</span></p>`
+            ).join('');
+        }).catch(() => {
+            c.innerHTML = '<p class="meta">No content yet. Study sessions will populate this wiki.</p>';
+        });
+    </script>
+</body>
+</html>
