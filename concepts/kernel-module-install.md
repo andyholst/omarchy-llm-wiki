@@ -1,10 +1,10 @@
 ---
 title: Kernel Module Installation
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 type: concept
 tags: [kernel, module, build, arch-linux]
-sources: []
+sources: [[kernel-applesmc-charge-threshold]]
 confidence: high
 ---
 
@@ -82,6 +82,8 @@ This error means the module was built against a different kernel. Rebuild from t
 - Required for [[macbook-air-5-2]] custom kernel support
 - Part of [[luks-btrfs-boot]] when modules go in initramfs
 - Manages [[bq20z451-battery]] when driver is properly installed
+- Required for [[linux-applesmc-kernel]] module installation
+- Enables [[charge-threshold-control]] when patched module is loaded
 
 ## See Also
 

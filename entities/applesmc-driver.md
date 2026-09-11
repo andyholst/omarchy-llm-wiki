@@ -1,10 +1,10 @@
 ---
 title: applesmc Driver
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 type: entity
-tags: [applesmc, kernel, driver, module]
-sources: []
+tags: [applesmc, kernel, driver, module, power]
+sources: [[kernel-applesmc-charge-threshold]]
 confidence: high
 ---
 
@@ -31,6 +31,8 @@ Pre-2013 Macs lack upstream `charge_control_end_threshold` support. The [[macboo
 
 **Patch status**: Committed to `github.com/andyholst/linux` branch `fix/macbookair-charge-control`. Not yet submitted upstream.
 
+**Build method**: Custom [[linux-applesmc-kernel]] kernel (7.2.4) built via [[custom-kernel-build-arch]] — stock Arch kernel has `CONFIG_SENSORS_APPLESMC=y` which prevents DKMS module loading.
+
 ## Module Loading
 
 ```bash
@@ -52,6 +54,9 @@ echo 80 | sudo tee /sys/class/power_supply/BAT0/charge_control_end_threshold
 - Runs on [[macbook-air-5-2]] hardware
 - Requires [[kernel-module-install]] for proper installation
 - Part of [[luks-btrfs-boot]] boot chain when included in initramfs
+- Built via [[custom-kernel-build-arch]] for charge threshold support
+- Runs on [[linux-applesmc-kernel]] custom kernel
+- Enables [[charge-threshold-control]] for battery preservation
 
 ## See Also
 

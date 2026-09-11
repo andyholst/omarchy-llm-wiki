@@ -1,10 +1,10 @@
 ---
 title: LUKS + Btrfs Boot Setup
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 type: concept
-tags: [luks, btrfs, systemd, mkinitcpio, limine]
-sources: []
+tags: [luks, btrfs, systemd, mkinitcpio, limine, kernel]
+sources: [[kernel-applesmc-charge-threshold]]
 confidence: high
 ---
 
@@ -78,6 +78,8 @@ mount -t btrfs -o subvol=@ /dev/mapper/root /mnt
 - Requires [[kernel-module-install]] for module setup
 - Integrates [[applesmc-driver]] when loaded at boot
 - Manages [[bq20z451-battery]] through encrypted boot chain
+- Supports multiple kernels ([[custom-kernel-build-arch]]): stock + linux-applesmc
+- Requires [[charge-threshold-control]] when using patched kernel
 
 ## See Also
 

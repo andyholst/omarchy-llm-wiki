@@ -1,10 +1,10 @@
 ---
 title: MacBook Air 5,2
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 type: entity
-tags: [macbook-air, hardware, intel]
-sources: []
+tags: [macbook-air, hardware, intel, wifi, broadcom]
+sources: [[wifi-bcm43224-test-results]]
 confidence: high
 ---
 
@@ -27,8 +27,9 @@ Intel Core i5-3427U (dual-core, 1.8GHz), Intel HD 4000, 8GB RAM. The last MacBoo
 
 - Running Omarchy Linux (Arch-based) with Hyprland
 - LUKS full disk encryption + Btrfs ([[luks-btrfs-boot]])
-- Custom kernel `7.2.3` with [[applesmc-driver]] charge control patches
+- Custom kernel `linux-applesmc` 7.2.4 with [[applesmc-driver]] charge control patches (stock 7.2.3 preserved as fallback)
 - TLP + auto-cpufreq + powertop for battery optimization
+- WiFi: [[broadcom-wl-dkms]] driver (2x improvement over brcmsmac, verified by [[wifi-bcm43224-test-results]])
 
 ## Hardware Notes
 
@@ -36,6 +37,7 @@ Intel Core i5-3427U (dual-core, 1.8GHz), Intel HD 4000, 8GB RAM. The last MacBoo
 - The SMC exposes battery charge thresholds via `BCLM`/`BFCL` keys — not in upstream kernel
 - Intel HD 4000 supports VA-API but not QuickSync; power management requires `i915.enable_dc=0` on this platform
 - 8GB RAM is soldered — not upgradeable
+- WiFi driver comparison: [[wifi-driver-comparison]] (brcmsmac vs broadcom-wl)
 
 ## Relationships
 
@@ -43,6 +45,10 @@ Intel Core i5-3427U (dual-core, 1.8GHz), Intel HD 4000, 8GB RAM. The last MacBoo
 - Managed by [[applesmc-driver]] for hardware control
 - Boots via [[luks-btrfs-boot]] encrypted setup
 - Uses [[kernel-module-install]] for custom module builds
+- Contains [[bcm43224-wifi]] WiFi chipset
+- Uses [[broadcom-wl-dkms]] proprietary WiFi driver
+- Runs [[linux-applesmc-kernel]] custom kernel
+- Verified by [[wifi-bcm43224-test-results]]
 
 ## See Also
 

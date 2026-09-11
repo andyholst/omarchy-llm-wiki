@@ -1,10 +1,10 @@
 ---
 title: bq20z451 Battery Gas Gauge
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 type: entity
-tags: [battery, hardware, applesmc]
-sources: []
+tags: [battery, hardware, applesmc, power]
+sources: [[kernel-applesmc-charge-threshold]]
 confidence: high
 ---
 
@@ -28,12 +28,15 @@ Texas Instruments battery gas gauge, used in MacBook Air 5,2 (mid-2012).
 - Monitored via [[applesmc-driver]] in kernel
 - Charge control patches allow setting `charge_control_end_threshold` to limit charging at 80-85%
 - Health declining slowly — typical for 12+ year old battery
+- Charge thresholds set via [[charge-threshold-control]]: start at 20%, stop at 80%
 
 ## Relationships
 
 - Installed in [[macbook-air-5-2]] laptop
 - Managed by [[applesmc-driver]] kernel module
 - Requires [[kernel-module-install]] for patched driver builds
+- Controlled via [[charge-threshold-control]] for battery preservation
+- Powered by [[linux-applesmc-kernel]] custom kernel
 
 ## See Also
 

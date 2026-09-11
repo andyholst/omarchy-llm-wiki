@@ -43,3 +43,18 @@
 - All pages now have explicit Relationships sections for stronger interlinking
 - Verified all wikilinks resolve to existing pages (no broken links)
 - All frontmatter validated against SCHEMA.md requirements
+
+## [2026-09-11] ingest | WiFi test results + charge threshold kernel build
+- Created raw source: raw/articles/wifi-bcm43224-test-results.md (physical WiFi test)
+- Created raw source: raw/articles/kernel-applesmc-charge-threshold.md (custom kernel build)
+- Created source-summary pages: sources/wifi-bcm43224-test-results.md, sources/kernel-applesmc-charge-threshold.md
+- Created 3 new entities: bcm43224-wifi, broadcom-wl-dkms, linux-applesmc-kernel
+- Created 3 new concepts: wifi-driver-comparison, custom-kernel-build-arch, charge-threshold-control
+- Updated entities/macbook-air-5-2.md: added WiFi details, 4 new relationships, source + updated date
+- Updated entities/applesmc-driver.md: added build method details, 3 new relationships, source + updated date
+- Updated entities/bq20z451-battery.md: added charge threshold details, 2 new relationships, source + updated date
+- Updated concepts/kernel-module-install.md: 2 new relationships, source + updated date
+- Updated concepts/luks-btrfs-boot.md: 2 new relationships, source + updated date
+- Updated index.md: added 6 new pages + 2 sources, total pages 5→12, updated date
+- All new pages have minimum 2 outbound wikilinks
+- All tags verified against SCHEMA.md taxonomy
